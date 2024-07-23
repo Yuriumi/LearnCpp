@@ -1,11 +1,2 @@
-#include "Log.h"
-
-void InitLog()
-{
-	std::cout << "Init Log" << std::endl;
-}
-
-void Log(const char* message)
-{
-	std::cout << message << std::endl;
-}
+int s_var = 5;
+static int var = 10;

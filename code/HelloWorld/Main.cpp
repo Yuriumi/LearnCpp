@@ -1,43 +1,35 @@
 #include <iostream>	// 预处理，在实际编译之前就被处理了
 #define LOG(x) std::cout << x << std::endl
 
-class Player
-{
-public:
-	int x{1}, y{1};
-	int speed{5};
+extern int s_var;
+int var = 10;
 
-	void Move( int xa, int ya)
+struct Entity {
+	int a, b;
+	static int c, d;
+
+	void Print()
 	{
-		x += xa * speed;
-		y += ya * speed;
+		LOG(a << b);
+	}
+
+	static void Print1()
+	{
+		LOG(c << d);
 	}
 };
 
-void Move(Player& player,int xa, int ya)
-{
-	player.x += xa * player.speed;
-	player.y += ya * player.speed;
-}
-
-struct Vec2
-{
-	float x, y;
-
-	void Add(Vec2& vec2) {
-		x + vec2.x;
-		y + vec2.y;
-	}
-};
+int Entity::c;
+int Entity::d;
 
 int main()	// main函数是程序的入口,main函数的返回值是特殊的，在默认情况下返回0
 {
-	Player player;
+	Entity e = { 2,4 };
+	e.Print();
 
-	player.Move(5, 5);
-
-	LOG(player.x);
-	LOG(player.y);
+	Entity::c = 10;
+	Entity::d = 10;
+	Entity::Print1();
 
 	std::cin.get();	// cin/cout 不是函数,是输入输出流对象
 }
