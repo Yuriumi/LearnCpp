@@ -1,6 +1,7 @@
 # C++ 学习笔记与示例代码
 
 ![C++](https://img.shields.io/badge/C++-Learning-blue.svg)
+![C++](https://img.shields.io/badge/Cherno-Youtube-red.svg)
 
 欢迎来到我的 C++ 学习笔记与示例代码仓库！这个仓库包含了我在学习 C++ 编程过程中所做的笔记和编写的示例代码，希望对您也有所帮助。
 
@@ -26,6 +27,7 @@
   - [C++虚函数](docs/C++虚函数.md)
   - [C++接口(纯虚函数)](<docs/C++接口(纯虚函数).md>)
   - [C++可见性](docs/C++可见性.md)
+  - [C++数组](docs/C++数组.md)
 
 ## 项目简介
 
