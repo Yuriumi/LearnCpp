@@ -4,46 +4,29 @@
 class Entity
 {
 public:
-	int X, Y;
+	float x{ 0 }, y{ 0 };
 
-	Entity(int x, int y)
+	void Move(float xa, float ya)
 	{
-		X = x;
-		Y = y;
+		LOG(x + xa << y + ya);
 	}
-
-	void Print()
-	{
-		LOG(X << ',' << Y);
-	}
-
-	~Entity()
-	{
-		LOG("Delte!");
-	}
-
 };
 
-class M_LOG
+class Player : public Entity
 {
 public:
-	M_LOG() = delete;
+	const char* name;
 
-	static void Write()
+	void PrintName()
 	{
-
+		LOG(name);
 	}
 };
-
-void Function()
-{
-	Entity e(10, 5);
-	e.Print();
-}
 
 int main()	// main函数是程序的入口,main函数的返回值是特殊的，在默认情况下返回0
 {
-	Function();
+	Player player;
+	player.Move(2, 3);
 
 	std::cin.get();	// cin/cout 不是函数,是输入输出流对象
 }
