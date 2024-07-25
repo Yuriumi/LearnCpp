@@ -2,28 +2,55 @@
 #include <string>
 #include "Log.cpp"
 
+class Entity
+{
+private:
+	int X{ 10 }, Y{ 10 };
+public:
+	int GetX() const
+	{
+		return X;
+	}
+
+	int GetY() const
+	{
+		return Y;
+	}
+
+	void Set(int x, int y)
+	{
+		X = x;
+		Y = y;
+	}
+};
+
+void Print(const Entity& e)
+{
+	//	e.Set(20, 20);	Error
+	LOG(e.GetX());
+}
 
 int main()	// main函数是程序的入口,main函数的返回值是特殊的，在默认情况下返回0
 {
-	const char* hello = "Hello Cpp";
-	char helloChar[5] = { 'H','e','l','l','o' };	// 遇到字符串终止符停止
+	int b = 20;
 
-	LOG(helloChar);
+	const int* a = new int;
+	a = &b;
+	// *a = 20;	ERROR
 
-	char stopChar[6] = { 'H','e','l','l','o','\0' };
+	int const* c = new int;
+	// *c = 50;	ERROR
+	a = &b;
 
-	LOG(stopChar);
+	int* const d = new int;
+	*d = 30;
+	// d = &b;	ERROR
 
-	std::string str = "Hello Cherno!";
-	bool contains = str.find("no") != std::string::npos;
+	Entity e;
+	Print(e);
 
-	str += "Cpp";
-
-	LOG(str);
-	LOG(contains);
-
-	std::string str1 = "Hello" + std::string("React");
-	LOG(str1);
+	const Entity e1;
+	e1.GetX();
 
 	std::cin.get();	// cin/cout 不是函数,是输入输出流对象
 }
