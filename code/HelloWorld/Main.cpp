@@ -5,52 +5,46 @@
 class Entity
 {
 private:
-	int X{ 10 }, Y{ 10 };
+	std::string m_Name;
+	int X, Y;
 public:
-	int GetX() const
+	Entity(std::string name,int x,int y)
+		:m_Name(name),X(x),Y(y)
 	{
-		return X;
+		LOG("Create a Entity!");
 	}
 
-	int GetY() const
+	void PrintName() const
 	{
-		return Y;
-	}
-
-	void Set(int x, int y)
-	{
-		X = x;
-		Y = y;
+		LOG(m_Name);
 	}
 };
 
-void Print(const Entity& e)
+class Example
 {
-	//	e.Set(20, 20);	Error
-	LOG(e.GetX());
-}
+private:
+	std::string m_Name;
+	Entity e;
+public:
+	Example(std::string name,Entity e1)
+		:m_Name(name),e(e1)
+	{
+		LOG("Create a Example!");
+	}
+
+	void PrintName() const
+	{
+		LOG(m_Name);
+	}
+};
 
 int main()	// main函数是程序的入口,main函数的返回值是特殊的，在默认情况下返回0
 {
-	int b = 20;
+	Entity e("Cherno",4,4);
+	e.PrintName();
 
-	const int* a = new int;
-	a = &b;
-	// *a = 20;	ERROR
-
-	int const* c = new int;
-	// *c = 50;	ERROR
-	a = &b;
-
-	int* const d = new int;
-	*d = 30;
-	// d = &b;	ERROR
-
-	Entity e;
-	Print(e);
-
-	const Entity e1;
-	e1.GetX();
+	Example e1("Big",e);
+	e1.PrintName();
 
 	std::cin.get();	// cin/cout 不是函数,是输入输出流对象
 }

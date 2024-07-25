@@ -30,6 +30,8 @@
   - [C++数组](docs/C++数组.md)
   - [C++字符串](docs/C++字符串.md)
   - [C++Const 常量](docs/C++%20Const.md)
+  - [mutable 关键字](docs/C++mutable关键字.md)
+  - [成员初始化列表](docs/C++成员初始化列表.md)
 
 ## 项目简介
 

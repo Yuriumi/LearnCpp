@@ -60,7 +60,7 @@ public:
 
 void PrintEntity(const Entity& e)
 {
-    // e.Set();	ERROR
+    // e.Set();
     LOG(e.GetX());
 }
 
