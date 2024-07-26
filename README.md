@@ -32,6 +32,8 @@
   - [C++Const 常量](docs/C++%20Const.md)
   - [mutable 关键字](docs/C++mutable关键字.md)
   - [成员初始化列表](docs/C++成员初始化列表.md)
+  - [三元运算符](docs/C++三元运算符.md)
+  - [创建并初始化 C++对象](docs/C++创建并初始化C++对象.md)
 
 ## 项目简介
 
