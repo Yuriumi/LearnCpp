@@ -2,20 +2,58 @@
 #include <string>
 #include "Log.cpp"
 
-class Entity
+struct Vector2
 {
-public:
-	std::string m_Name;
-	int m_Age;
-	bool m_Attack;
+	float x, y;
 
-	explicit Entity(bool attack)
-		: m_Name("Unknow"), m_Age(-1), m_Attack(0) {}
+	Vector2(float x, float y)
+		:x(x),y(y){}
+
+	Vector2 Add(const Vector2& other) const
+	{
+		return Vector2(x + other.x, y + other.y);
+	}
+
+	Vector2 operator+(const Vector2& other) const
+	{
+		return Add(other);
+	}
+
+	Vector2 Multipy(const Vector2& other) const
+	{
+		return Vector2(x * other.x, y * other.y);
+	} 
+
+	Vector2 operator*(const Vector2& other) const
+	{
+		return Multipy(other);
+	}
+
+	bool operator==(const Vector2& other)
+	{
+		return x == other.x && y == other.y;
+	}
+
+	bool operator!=(const Vector2& other)
+	{
+		return !(*this == other);
+	}
 };
+
+std::ostream& operator<<(std::ostream& stream, const Vector2& other)
+{
+	stream << other.x << other.y;
+	return stream;
+}
 
 int main()	// main函数是程序的入口,main函数的返回值是特殊的，在默认情况下返回0
 {
-	Entity e = "1111";
+	Vector2 position(0.0f, 0.0f);
+	Vector2 speed(.5f, .5f);
+
+	Vector2 move = position + speed;
+	LOG(move.x << move.y);
+	LOG(move);
 
 	std::cin.get();	// cin/cout 不是函数,是输入输出流对象
 }
