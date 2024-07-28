@@ -46,14 +46,40 @@ std::ostream& operator<<(std::ostream& stream, const Vector2& other)
 	return stream;
 }
 
+class Example
+{
+private:
+	int x, y;
+
+public:
+	Example(int x, int y)
+	{
+		this->x = x;
+		this->y = y;
+
+		Example* e = this;
+		e->x = x;
+	}
+
+	int GetX() const
+	{
+		const Example* e = this;
+		return e->x;
+	}
+
+	void PrintExample()
+	{
+		const Example& e = *this;
+		std::cout << e.GetX() << std::endl;
+	}
+};
+
 int main()	// main函数是程序的入口,main函数的返回值是特殊的，在默认情况下返回0
 {
-	Vector2 position(0.0f, 0.0f);
-	Vector2 speed(.5f, .5f);
+	Example e(10.0f,5.0f);
+	LOG(e.GetX());
+	e.PrintExample();
 
-	Vector2 move = position + speed;
-	LOG(move.x << move.y);
-	LOG(move);
 
 	std::cin.get();	// cin/cout 不是函数,是输入输出流对象
 }
