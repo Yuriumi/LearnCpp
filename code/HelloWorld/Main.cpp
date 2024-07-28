@@ -74,12 +74,27 @@ public:
 	}
 };
 
+class ScopPtr
+{
+private:
+	Example* m_Ptr;
+
+public:
+	ScopPtr(Example* ptr)
+		:m_Ptr(ptr){}
+
+	~ScopPtr()
+	{
+		LOG(123);
+		delete m_Ptr;
+	}
+};
+
 int main()	// main函数是程序的入口,main函数的返回值是特殊的，在默认情况下返回0
 {
-	Example e(10.0f,5.0f);
-	LOG(e.GetX());
-	e.PrintExample();
-
+	{
+		ScopPtr example(new Example(1,1));
+	}
 
 	std::cin.get();	// cin/cout 不是函数,是输入输出流对象
 }
